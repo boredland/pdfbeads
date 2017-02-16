@@ -579,7 +579,8 @@ class PDFBeads::PDFBuilder
         ltxt << unit[0]
         wwidth += ( unit[1][2] - unit[1][0] )
       end
-      ratio = wwidth / @fdata.getLineWidth( ltxt,fsize )
+      ratio = wwidth / (0.000000001 + @fdata.getLineWidth( ltxt,fsize ))
+#      ratio = wwidth / @fdata.getLineWidth( ltxt,fsize )
       pos = lbbox[0]
       posdiff = 0
 
