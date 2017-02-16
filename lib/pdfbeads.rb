@@ -34,7 +34,7 @@ require 'iconv'
 require 'zlib'
 require 'nokogiri'
 
-require 'RMagick'
+require 'rmagick'
 include Magick
 
 unless ''.respond_to? :ord
