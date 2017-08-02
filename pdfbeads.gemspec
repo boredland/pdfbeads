@@ -20,15 +20,14 @@ Gem::Specification.new do |s|
     layer with a specific compression method and resolution.
   EOD
 
-
   s.files             = `git ls-files`.split("\n")
   s.require_paths     = ["lib"]
 
   s.executables << 'pdfbeads'
 
-  s.add_runtime_dependency('nokogiri')
-  s.add_runtime_dependency('iconv')
-  s.add_runtime_dependency('rmagick')
+  s.add_runtime_dependency('nokogiri','~> 1.7')
+  s.add_runtime_dependency('iconv','~> 1.0')
+  s.add_runtime_dependency('rmagick','~> 2.0')
 
   s.extra_rdoc_files = %w( README COPYING ChangeLog )
 

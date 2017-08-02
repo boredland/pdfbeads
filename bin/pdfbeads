@@ -4,7 +4,7 @@
 ######################################################################
 #
 # PDFBeads -- convert scanned images to a single PDF file
-# Version 1.0
+# Version 1.1.1
 #
 # Unlike other PDF creation tools, this utility attempts to implement
 # the approach typically used for DjVu books. Its key feature is

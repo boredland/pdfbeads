@@ -253,18 +253,18 @@ class PDFBeads::PageDataProvider < Array
 
         # A hack for some Windows versions of RMagick, which throw an error the
         # first time when Magick.formats is accessed
-        retries = 2
-        begin
-          mfmts = Magick.formats
-        rescue
-          retry if (retries -= 1 ) > 0
-        end
-        if bgf.eql? 'JP2' and not mfmts.has_key? 'JP2'
-          $stderr.puts( "This version of ImageMagick doesn't support JPEG2000 compression." )
-          $stderr.puts( "\tI'll use JPEG compression instead." )
-          bgf = 'JPG'
-          bgpath = "#{@basename}.bg." << bgf.downcase
-        end
+        # retries = 2
+        #begin
+        #  mfmts = Magick.formats
+        #rescue
+        #  retry if (retries -= 1 ) > 0
+        #end
+        #if bgf.eql? 'JP2' and not mfmts.has_key? 'JP2'
+        #  $stderr.puts( "This version of ImageMagick doesn't support JPEG2000 compression." )
+        #  $stderr.puts( "\tI'll use JPEG compression instead." )
+        #  bgf = 'JPG'
+        #  bgpath = "#{@basename}.bg." << bgf.downcase
+        #end
 
         writeImage( img,bgpath,bgf )
         @bg_created = true
@@ -401,16 +401,16 @@ class PDFBeads::PageDataProvider < Array
 
     # A hack for some Windows versions of RMagick, which throw an error the
     # first time when Magick.formats is accessed
-    retries = 2
-    begin
-      mfmts = Magick.formats
-    rescue
-      retry if (retries -= 1 ) > 0
-    end
-    unless mfmts.has_key? 'JP2'
-      @exts.delete_if{ |ext| ext_jpeg2000.include? ext }
-      @pref = Array.new( ext_jpeg ) if @pref.include? 'JP2'
-    end
+    #retries = 2
+    #begin
+    #  mfmts = Magick.formats
+    #rescue
+    #  retry if (retries -= 1 ) > 0
+    #end
+    #unless mfmts.has_key? 'JP2'
+    #  @exts.delete_if{ |ext| ext_jpeg2000.include? ext }
+    #  @pref = Array.new( ext_jpeg ) if @pref.include? 'JP2'
+    #end
 
     for fname in files do
       if /\A([^.]*)\.(TIFF?|PNG)\Z/i.match( fname )
